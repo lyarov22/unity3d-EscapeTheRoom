@@ -24,11 +24,11 @@ public class drags : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = true;
             transform.position = objPos;
-   
-        
+     
     }
-    private void OnMouseDown()
+    private void Update()
     {
-        rb.isKinematic = false;
+       rb.isKinematic = false; 
     }
+     
 }
