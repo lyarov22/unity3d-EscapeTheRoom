@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
+using static UnityEngine.GraphicsBuffer;
 
 public class drags : MonoBehaviour
 {
@@ -9,8 +10,7 @@ public class drags : MonoBehaviour
     float distanse = 3;
     public Camera cam;
     private Rigidbody rb;
-   
-    // Start is called before the first frame update
+     
 
     private void Start()
     {
@@ -19,11 +19,26 @@ public class drags : MonoBehaviour
 
     void OnMouseDown()
     {
+  
+        
+        float distance = Vector3.Distance(cam.transform.position, rb.position);
+
+        
+        float desiredDistance = 10f;
+        if (distance < desiredDistance  )
+        {
+            // Если расстояние меньше заданного значения, выполнить определенное действие
             
-          
             rb.isKinematic = true;
-           
-           // rb.AddForce(cam.transform.forward * 500);
+        }
+        else
+        {
+            // Если расстояние больше или равно заданному значению, выполнить другое действие
+          
+        }
+
+       
+            
     }
     void Update()
     {

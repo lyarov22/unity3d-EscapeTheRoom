@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
     public float smooth = 2.0f;
     public float DoorOpenAngle = 90.0f;
-
+    public Camera cam;
 
 
     private Vector3 defaultRot;
     private Vector3 openRot;
     private bool open;
-    private bool enter;
+   
+
+    private bool cur = false;
+    private bool cure = false;
 
     // Use this for initialization
     void Start()
@@ -25,6 +29,39 @@ public class Lever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+
+            if (hit.collider.gameObject == this.gameObject)
+            {
+                cur = true;
+            }
+            else
+            {
+                cur = false;
+            }
+        }
+
+        float distance = Vector3.Distance(cam.transform.position, this.gameObject.transform.position);
+
+
+        float desiredDistance = 3f;
+        if (distance < desiredDistance)
+        {
+            // Если расстояние меньше заданного значения, выполнить определенное действие
+
+            cure = true;
+        }
+        else
+        {
+            // Если расстояние больше или равно заданному значению, выполнить другое действие
+            cure = false;
+        }
         if (open)
         {
 
@@ -36,25 +73,11 @@ public class Lever : MonoBehaviour
             transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaultRot, Time.deltaTime * smooth);
 
         }
-        if (Input.GetKeyDown(KeyCode.E) && enter)
+        if (Input.GetKeyDown(KeyCode.E) && cur && cure)
         {
             open = !open;
         }
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.tag == "Player")
-        {
-            enter = true;
-        }
-    }
-
-    void OnTriggerExit(Collider col)
-    {
-        if (col.tag == "Player")
-        {
-            enter = false;
-        }
-    }
+   
 }
