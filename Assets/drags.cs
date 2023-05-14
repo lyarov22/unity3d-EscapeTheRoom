@@ -18,17 +18,22 @@ public class drags : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        
             Vector3 mouse = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, distanse); 
             Vector3 objPos = cam.ScreenToWorldPoint (mouse);
             rb.isKinematic = true;
-            rb.useGravity = true;
             transform.position = objPos;
-     
+           // rb.AddForce(cam.transform.forward * 500);
     }
-    private void Update()
+    void FixedUpdate()
     {
-       rb.isKinematic = false; 
+        if (rb.isKinematic == true)
+        {
+            
+                rb.AddForce(cam.transform.forward * 500);      
+                rb.isKinematic = false; 
+             
+        }
+       
     }
      
 }
