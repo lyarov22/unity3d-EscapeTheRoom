@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Lever : MonoBehaviour
+
+public class LeverDoor : MonoBehaviour
 {
     public float smooth = 2.0f;
     public float DoorOpenAngle = 30.0f;
     public Camera cam;
-
+    public GameObject Door;
+     
 
     private Vector3 defaultRot;
     private Vector3 openRot;
     private bool open;
-   
+ 
 
     private bool cur = false;
     private bool cure = false;
@@ -23,7 +26,8 @@ public class Lever : MonoBehaviour
     {
 
         defaultRot = transform.eulerAngles;
-        openRot = new Vector3(defaultRot.x , defaultRot.y, defaultRot.z+ DoorOpenAngle);
+        openRot = new Vector3(defaultRot.x, defaultRot.y, defaultRot.z + DoorOpenAngle);
+        
     }
 
     // Update is called once per frame
@@ -79,5 +83,4 @@ public class Lever : MonoBehaviour
         }
     }
 
-   
 }
