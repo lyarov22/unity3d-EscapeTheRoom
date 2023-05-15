@@ -25,6 +25,14 @@ public class Falling_Lamp : MonoBehaviour
         if (other.gameObject.CompareTag("Untagged"))
         {
             rb.isKinematic = false;
+         
         }
+        StartCoroutine(DelayedAction());
+    }
+
+    IEnumerator DelayedAction()
+    {
+        yield return new WaitForSeconds(2f); // Задержка в 5 секунды
+        DestroyImmediate(GetComponent<Rigidbody>());
     }
 }
