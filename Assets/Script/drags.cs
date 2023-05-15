@@ -51,7 +51,7 @@ public class drags : MonoBehaviour
                 {
                     rb.useGravity = true;
                     rb.isKinematic = false;
-                    rb.AddForce(cam.transform.forward * 1000);
+                    rb.AddForce(cam.transform.forward * 1200);
             }
         }
 

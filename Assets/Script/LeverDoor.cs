@@ -15,22 +15,25 @@ public class LeverDoor : MonoBehaviour
 
     private Vector3 defaultRot;
     private Vector3 openRot;
+    private Vector3 defaultRot1;
+    private Vector3 openRot1;
     private bool open;
  
 
     private bool cur = false;
     private bool cure = false;
 
-    // Use this for initialization
+    
     void Start()
     {
 
         defaultRot = transform.eulerAngles;
         openRot = new Vector3(defaultRot.x, defaultRot.y, defaultRot.z + DoorOpenAngle);
-        
+        defaultRot1 = Door.transform.eulerAngles;
+        openRot1 = new Vector3(defaultRot1.x, defaultRot1.y + 90.0f, defaultRot1.z);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -70,12 +73,13 @@ public class LeverDoor : MonoBehaviour
         {
 
             transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, openRot, Time.deltaTime * smooth);
+            Door.transform.eulerAngles = Vector3.Slerp(Door.transform.eulerAngles, openRot1, Time.deltaTime * smooth);
         }
         else
         {
 
             transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaultRot, Time.deltaTime * smooth);
-
+            Door.transform.eulerAngles = Vector3.Slerp(Door.transform.eulerAngles, defaultRot1, Time.deltaTime * smooth);
         }
         if (Input.GetKeyDown(KeyCode.E) && cur && cure)
         {
