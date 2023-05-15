@@ -34,24 +34,20 @@ public class Swords : MonoBehaviour
     {
         if (other == col)
         {
-           
             Sword_Tron1.active = true;
             Sword1.active = false;
         }
         else if (other == col2)
-        {
-         
+        {      
             Sword_Tron2.active = true;
             Sword2.active = false;
         }
         else if (other == col3)
-        {
-           
+        {  
             Sword_Tron3.active = true;
             Sword3.active = false;
         }
         else if(other == col4){
-
             Sword_Tron4.active = true;
             Sword4.active = false;
         }
