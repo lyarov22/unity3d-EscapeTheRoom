@@ -9,13 +9,16 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
+    public GameObject Camera1;
+    public GameObject Camera2;
+
     public GameObject HUD;
 
     public GameObject PanelUI;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             if (GameIsPaused)
             {
@@ -33,6 +36,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         HUD.active = true;
+        Camera1.SetActive(true);
+        Camera2.SetActive(false);
     }
 
     private void Pause()
@@ -41,6 +46,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
         HUD.active = false;
+        Camera2.SetActive(true);
+        Camera1.SetActive(false);
     }
 
     public void MenuGame()
