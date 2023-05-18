@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
-    public GameObject Camera1;
+    public Camera Camera1;
      
 
     public GameObject HUD;

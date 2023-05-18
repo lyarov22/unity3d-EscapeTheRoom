@@ -1,53 +1,48 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Starter : MonoBehaviour
 {
-
     public GameObject cursor;
     public GameObject starter;
     public Image background;
-    
+    public TextMeshProUGUI textHistory;
 
-    public float fadeDuration = 15f;
-    private float fadeTimer = 5f;
-    private bool isFading = false;
+    public float fadeDuration = 3f;
+    public float fadeDelay = 2f;
 
-    void Start()
-    {
-        // Запуск плавного исчезновения фона UI
-        StartFade();
-    }
     private void Update()
     {
-        StartCoroutine(DelayedAction());
-        if (isFading)
+        if (Input.anyKeyDown)
         {
-            fadeTimer += Time.deltaTime;
-            float alpha = 1f - Mathf.Clamp01(fadeTimer / fadeDuration); // Изменение прозрачности от 1 до 0
-
-            Color backgroundColor = background.color;
-            backgroundColor.a = alpha; // Установка нового значения альфа-канала
-            background.color = backgroundColor;
-
-            if (fadeTimer >= fadeDuration)
-            {
-                isFading = false;
-            }
+            StartCoroutine(FadeSequence());
         }
     }
 
-    IEnumerator DelayedAction()
+    private IEnumerator FadeSequence()
     {
-        yield return new WaitForSeconds(3f); // Задержка в 2 секунды
-         cursor.SetActive(true);
-         starter.SetActive(false);                              // Выполнить задержанное действие
-    }
-    void StartFade()
-    {
-        isFading = true;
-        fadeTimer = 0f;
+        yield return new WaitForSeconds(fadeDelay);
+
+        float elapsedTime = 0f;
+        Color startColor = background.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float t = Mathf.Clamp01(elapsedTime / fadeDuration);
+            float alpha = Mathf.Lerp(startColor.a, endColor.a, t);
+
+            background.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            textHistory.color = new Color(textHistory.color.r, textHistory.color.g, textHistory.color.b, alpha);
+
+            yield return null;
+        }
+
+        cursor.SetActive(true);
+        starter.SetActive(false);
     }
 }

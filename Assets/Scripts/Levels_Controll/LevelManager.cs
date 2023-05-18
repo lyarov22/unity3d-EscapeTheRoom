@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
 
-    public TextMesh level1;
-    public TextMesh level2;
+    public TextMeshPro level1;
+    public TextMeshPro level2;
     private void Start()
     {
         // Загружаем информацию об уровнях из файла
@@ -16,24 +17,20 @@ public class LevelManager : MonoBehaviour
         // Используем информацию об уровнях
         if (levelData.level1Passed)
         {
-            // Действия, если уровень 1 пройден
-            level1.text = "Статус: пройден";
+            level1.SetText("Статус: пройден");
         }
         else
         {
-            // Действия, если уровень 1 не пройден
-            level1.text = "Статус: не пройден";
+            level1.SetText("Статус: не пройден");
         }
 
         if (levelData.level2Passed)
         {
-            // Действия, если уровень 2 пройден
-            level2.text = "Статус: пройден";
+            level2.SetText("Статус: пройден");
         }
         else
         {
-            // Действия, если уровень 2 не пройден
-            level2.text = "Статус: не пройден";
+            level2.SetText("Статус: не пройден");
         }
 
         // И так далее...
