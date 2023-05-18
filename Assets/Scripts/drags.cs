@@ -48,7 +48,7 @@ public class drags : MonoBehaviour
             Vector3 objPos = cam.ScreenToWorldPoint(mouse);
             transform.position = objPos;
             if (Input.GetKeyDown(KeyCode.Q))
-                {
+            {
                     rb.useGravity = true;
                     rb.isKinematic = false;
                     rb.AddForce(cam.transform.forward * 1200);

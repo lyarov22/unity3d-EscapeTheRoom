@@ -1,36 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class drag : MonoBehaviour
 {
 
-    float distanse = 3;
-    public Transform pos;
+ 
+   // public Transform pos;
     public Camera cam;
-    private Rigidbody rb; 
-     
+    private Rigidbody rb;
+
+    public GameObject hand;
+    public float smoothSpeed = 500f; // —корость перемещени€
+
+    private Vector3 velocity = Vector3.zero;
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+       
     }
 
     void OnMouseDown()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, distanse))
+        float distance = Vector3.Distance(cam.transform.position, rb.position);
+
+
+        float desiredDistance = 10f;
+        if (distance < desiredDistance)
         {
+            // ≈сли рассто€ние меньше заданного значени€, выполнить определенное действие
+
             rb.isKinematic = true;
-            rb.MovePosition(pos.position);
-        }  
+            Vector3 newPosition = Vector3.SmoothDamp(transform.position, hand.transform.position, ref velocity, smoothSpeed);
+
+            // ѕримен€ем новую позицию к объекту
+            transform.position = newPosition;
+        }
+        else
+        {
+            // ≈сли рассто€ние больше или равно заданному значению, выполнить другое действие
+
+        }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (rb.isKinematic == true)
-        {
-            this.gameObject.transform.position = pos.position;
-            if (Input.GetKeyDown(KeyCode.G))
+        { 
+            transform.position = hand.transform.position;
+
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 rb.useGravity = true;
                 rb.isKinematic = false;
