@@ -29,10 +29,6 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-
-        Vector3 pos1 = Camera1.transform.position;
-        Camera2.transform.position = pos1;
-
     }
     public void Resume()
     {
@@ -40,8 +36,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         HUD.active = true;
-        Camera1.active = true;
-        Camera2.active = false;
+        Camera1.SetActive(true);
+        Camera2.SetActive(false);
     }
 
     private void Pause()
@@ -50,10 +46,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
         HUD.active = false;
-        Camera2.active = true;
-        Camera1.active = false;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        Camera2.SetActive(true);
+        Camera1.SetActive(false);
     }
 
     public void MenuGame()
