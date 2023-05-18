@@ -8,6 +8,8 @@ public class MusicController : MonoBehaviour
     public AudioSource audioSource;
     private int currentTrackIndex = 0;
 
+    public GameObject pauseMenu;
+
     private void Start()
     {
         PlayNextTrack();

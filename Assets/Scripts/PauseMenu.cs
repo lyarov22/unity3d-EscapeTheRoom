@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
 
     public GameObject Camera1;
     public GameObject Camera2;
@@ -15,6 +15,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject HUD;
 
     public GameObject PanelUI;
+
+    private void Start()
+    {
+        Component cameraScript = Camera1.GetComponent<CameraController>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -40,19 +46,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         HUD.active = true;
-        Camera1.active = true;
-        Camera2.active = false;
         Cursor.visible = false;
     }
 
     private void Pause()
     {
+        
         PanelUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
         HUD.active = false;
-        Camera2.active = true;
-        Camera1.active = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
