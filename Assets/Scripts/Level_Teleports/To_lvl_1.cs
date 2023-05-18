@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Info_Src : MonoBehaviour
+public class To_lvl_1 : MonoBehaviour
 {
 
     private bool isPlayerInsideTrigger = false;

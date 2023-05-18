@@ -1,37 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+ 
 
-public class Back_to_Lobby : MonoBehaviour
+public class LevelDataWriter : MonoBehaviour
 {
     private string filePath = "Assets/LevelData.txt"; // Путь к файлу
-    public GameObject Player;
 
-    private Collider col;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        col = Player.GetComponent<Collider>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
+        // Создаем пример информации об уровнях
         LevelData levelData = new LevelData();
-        levelData.level1Passed = true;
+        levelData.level1Passed = false;
         levelData.level2Passed = false;
         levelData.level3Passed = false;
 
         // Записываем информацию в файл
-        if (other == col)
-        {
-            SceneManager.LoadScene("New_Lobby");   
-            WriteLevelDataToFile(levelData);
-
-        }
+        WriteLevelDataToFile(levelData);
     }
+
     private void WriteLevelDataToFile(LevelData data)
     {
         // Преобразуем информацию об уровнях в строку
@@ -43,5 +29,11 @@ public class Back_to_Lobby : MonoBehaviour
         File.WriteAllText(filePath, levelDataString);
     }
 }
- 
+
+public class LevelData
+{
+    public bool level1Passed;
+    public bool level2Passed;
+    public bool level3Passed;
+}
 

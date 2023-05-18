@@ -10211,6 +10211,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 82551589665e3c744abd552b84b67e3f, type: 3}
   - {fileID: 8300000, guid: 6b17d8f2e5761894a8bb7c6714d16895, type: 3}
   audioSource: {fileID: 979402670}
+  pauseMenu: {fileID: 0}
 --- !u!114 &979402674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20120,7 +20121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2043536354}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
