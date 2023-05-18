@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 743017124}
   - component: {fileID: 743017125}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: VSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2002,6 +2002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044654792}
+  - component: {fileID: 1044654793}
   m_Layer: 5
   m_Name: Sliders
   m_TagString: Untagged
@@ -2032,6 +2033,21 @@ RectTransform:
   m_AnchoredPosition: {x: -41.2, y: 12.7}
   m_SizeDelta: {x: 186, y: 324}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1044654793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044654791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0318af65f8ff19640a5276bb2655bedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 9dfb756482001c84eaed39fb23c30525, type: 2}
+  MasterVolumeSlider: {fileID: 743017125}
+  MusicSlider: {fileID: 1652739446}
 --- !u!1 &1125538912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,7 +3056,7 @@ GameObject:
   - component: {fileID: 1652739445}
   - component: {fileID: 1652739446}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MusSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3116,7 +3132,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.715
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
