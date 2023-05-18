@@ -932,6 +932,7 @@ GameObject:
   - component: {fileID: 133729778}
   - component: {fileID: 133729780}
   - component: {fileID: 133729779}
+  - component: {fileID: 133729781}
   m_Layer: 0
   m_Name: object3
   m_TagString: Untagged
@@ -1003,6 +1004,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133729777}
+  m_Mesh: {fileID: 3892469651134686861, guid: cc82f5e2e7bb78d4d94bca43b3ee09d8, type: 3}
+--- !u!64 &133729781
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133729777}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 3892469651134686861, guid: cc82f5e2e7bb78d4d94bca43b3ee09d8, type: 3}
 --- !u!1 &134153883
 GameObject:
@@ -3406,6 +3421,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 82551589665e3c744abd552b84b67e3f, type: 3}
   - {fileID: 8300000, guid: 6b17d8f2e5761894a8bb7c6714d16895, type: 3}
   audioSource: {fileID: 197286492}
+  pauseMenu: {fileID: 0}
 --- !u!4 &356691079
 Transform:
   m_ObjectHideFlags: 0
@@ -14740,6 +14756,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8255116855244853585, guid: 1a8446f7f10b8754d89cbc81571afc8d, type: 3}
+--- !u!1 &1720430380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2526933834787328523, guid: ad8322ba3fc290f41bba28232dc91183, type: 3}
+  m_PrefabInstance: {fileID: 252712856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1720430384
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720430380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2349749667616923659, guid: ad8322ba3fc290f41bba28232dc91183, type: 3}
 --- !u!64 &1734526660
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17829,7 +17864,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1001 &2140546345
