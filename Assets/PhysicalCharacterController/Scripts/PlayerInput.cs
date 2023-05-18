@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+	
+
 	public float speed = 5;
 	public float jumpHeight = 15;
 	public PhysicalCC physicalCC;
