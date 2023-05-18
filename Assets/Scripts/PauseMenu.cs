@@ -10,12 +10,18 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject Camera1;
-    public GameObject Camera2;
+     
 
     public GameObject HUD;
-
+    private CameraController script;
     public GameObject PanelUI;
     // Update is called once per frame
+
+    private void Start()
+    {
+         script = Camera1.GetComponent<CameraController>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -30,8 +36,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        Vector3 pos1 = Camera1.transform.position;
-        Camera2.transform.position = pos1;
+        
 
     }
     public void Resume()
@@ -40,8 +45,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         HUD.active = true;
-        Camera1.active = true;
-        Camera2.active = false;
+       
+        script.enabled = true;
         Cursor.visible = false;
     }
 
@@ -51,8 +56,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
         HUD.active = false;
-        Camera2.active = true;
-        Camera1.active = false;
+        
+        script.enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
