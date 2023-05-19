@@ -8106,6 +8106,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 652ab1d02ac042a42aba5ba04e3eb459, type: 3}
   m_PrefabInstance: {fileID: 676369788}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &676369790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 652ab1d02ac042a42aba5ba04e3eb459, type: 3}
+  m_PrefabInstance: {fileID: 676369788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &676369791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676369790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f19b7de3c13e9d418eb2faee47c6b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 197286495}
+  hand: {fileID: 988807733}
+  smoothSpeed: 500
+--- !u!64 &676369792
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676369790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8870883318063892897, guid: 652ab1d02ac042a42aba5ba04e3eb459, type: 3}
+--- !u!54 &676369793
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676369790}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &678815901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2168271938362447112, guid: 4c127de4159e0b34e98b7c4bad95f611, type: 3}
@@ -10223,6 +10273,7 @@ GameObject:
   - component: {fileID: 878656404}
   - component: {fileID: 878656403}
   - component: {fileID: 878656402}
+  - component: {fileID: 878656405}
   m_Layer: 0
   m_Name: doorKitchen1
   m_TagString: Untagged
@@ -10310,6 +10361,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878656400}
   m_Mesh: {fileID: 4300000, guid: 3044b339fccf8ad4b84d6f8d455fd8f8, type: 2}
+--- !u!114 &878656405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878656400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa89eb8e8c157b04bb83fad063eb9fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smooth: 2
+  DoorOpenAngle: 90
+  Door: {fileID: 878656400}
+  Key: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!64 &884122453
 MeshCollider:
   m_ObjectHideFlags: 0
