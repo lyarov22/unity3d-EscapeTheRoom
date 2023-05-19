@@ -17,8 +17,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject PanelUI;
     // Update is called once per frame
 
+    int sceneIndex;
+
     private void Start()
     {
+         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
          script = Camera1.GetComponent<CameraController>();
     }
 
@@ -60,6 +64,12 @@ public class PauseMenu : MonoBehaviour
         script.enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void Restart()
+    {
+        Resume();
+        SceneManager.LoadScene(sceneIndex);
     }
 
     public void MenuGame()
