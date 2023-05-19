@@ -8,6 +8,7 @@ public class Lever : MonoBehaviour
     public float doorOpenAngle = 30.0f;
     public Camera cam;
     public GameObject objectToDestroy;
+    public GameObject objectToDestroy2;
     public List<Lever> levers;
 
     private Vector3 defaultRot;
@@ -79,20 +80,20 @@ public class Lever : MonoBehaviour
     private void CheckSequence()
     {
         int leverCount = levers.Count;
-        bool isCorrectSequence = true;
+        int openLeverCount = 0;
 
         for (int i = 0; i < leverCount; i++)
         {
-            if (!levers[i].open)
+            if (levers[i].open)
             {
-                isCorrectSequence = false;
-                break;
+                openLeverCount++;
             }
         }
 
-        if (isCorrectSequence)
+        if (openLeverCount == leverCount)
         {
             Destroy(objectToDestroy);
+            Destroy(objectToDestroy2);
         }
     }
 }
